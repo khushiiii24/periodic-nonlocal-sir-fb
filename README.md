@@ -4,11 +4,7 @@
 
 **How does a seasonal disease like dengue spread into new areas, and does the time of year matter?**
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-SciPy-013243?logo=numpy&logoColor=white)
-![Numba](https://img.shields.io/badge/Numba-fast-00A3E0)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Group](https://img.shields.io/badge/Group-G3-orange)
+**Python** · **NumPy** · **SciPy** · **Numba** · **MIT License** · **Group G3**
 
 </div>
 
