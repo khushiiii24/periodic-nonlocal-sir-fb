@@ -1,0 +1,95 @@
+{
+ "rows": [
+  {
+   "mu": 0.5,
+   "cbar": 0.08963891026223503,
+   "c0": 0.10288285527772277,
+   "cstar": 0.9854056832906892,
+   "ratio_seasonal": 0.09096650423497918,
+   "ratio_auton": 0.10440659823896398,
+   "seasonal_over_auton": 0.8712716032254652,
+   "status": "running/horizon"
+  },
+  {
+   "mu": 1,
+   "cbar": 0.14600539874450325,
+   "c0": 0.1677100459633579,
+   "cstar": 0.9854056832906892,
+   "ratio_seasonal": 0.14816780664074217,
+   "ratio_auton": 0.17019390978475243,
+   "seasonal_over_auton": 0.8705823071350371,
+   "status": "running/horizon"
+  },
+  {
+   "mu": 2,
+   "cbar": 0.21830459436219407,
+   "c0": 0.2500674418554933,
+   "cstar": 0.9854056832906892,
+   "ratio_seasonal": 0.2215377869885853,
+   "ratio_auton": 0.2537710570334967,
+   "seasonal_over_auton": 0.8729828751091314,
+   "status": "running/horizon"
+  },
+  {
+   "mu": 5,
+   "cbar": 0.3269417833167376,
+   "c0": 0.37157125251689216,
+   "cstar": 0.9854056832906892,
+   "ratio_seasonal": 0.3317839432637934,
+   "ratio_auton": 0.3770743956702761,
+   "seasonal_over_auton": 0.8798898760389823,
+   "status": "running/horizon"
+  },
+  {
+   "mu": 10,
+   "cbar": 0.409078285463719,
+   "c0": 0.4614857132849604,
+   "cstar": 0.9854056832906892,
+   "ratio_seasonal": 0.41513692522822926,
+   "ratio_auton": 0.4683205314423021,
+   "seasonal_over_auton": 0.8864375942470821,
+   "status": "running/horizon"
+  },
+  {
+   "mu": 25,
+   "cbar": 0.5079568018628746,
+   "c0": 0.5671417259026913,
+   "cstar": 0.9854056832906892,
+   "ratio_seasonal": 0.5154798784664916,
+   "ratio_auton": 0.5755413587719157,
+   "seasonal_over_auton": 0.8956435026084265,
+   "status": "running/horizon"
+  },
+  {
+   "mu": 60,
+   "cbar": 0.5867188412486047,
+   "c0": 0.6502903694988598,
+   "cstar": 0.9854056832906892,
+   "ratio_seasonal": 0.5954084203059401,
+   "ratio_auton": 0.6599214724713818,
+   "seasonal_over_auton": 0.9022413198287931,
+   "status": "running/horizon"
+  },
+  {
+   "mu": 150,
+   "cbar": 0.6531507164184381,
+   "c0": 0.7193221748901119,
+   "cstar": 0.9854056832906892,
+   "ratio_seasonal": 0.6628241824598471,
+   "ratio_auton": 0.7299756710231149,
+   "seasonal_over_auton": 0.9080085936711426,
+   "status": "running/horizon"
+  },
+  {
+   "mu": 400,
+   "cbar": 0.7083334787797009,
+   "c0": 0.7760475833753132,
+   "cstar": 0.9854056832906892,
+   "ratio_seasonal": 0.7188242272099281,
+   "ratio_auton": 0.787541209204071,
+   "seasonal_over_auton": 0.9127449063096118,
+   "status": "running/horizon"
+  }
+ ],
+ "cstar": 0.9854056832906892
+}

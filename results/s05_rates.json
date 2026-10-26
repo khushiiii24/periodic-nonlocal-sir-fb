@@ -1,0 +1,103 @@
+{
+ "gaussian": {
+  "theory": "finite c\u2080",
+  "final_year": 40,
+  "final_h_over_t": 0.21669284432832925,
+  "change_last_10y": -0.011851059292398936,
+  "auton_final_h_over_t": 0.2502670802900126,
+  "semiwave_c0": 0.2500674418553831,
+  "measured": "levels off (-1.2% in last 10 yr)"
+ },
+ "laplace": {
+  "theory": "finite c\u2080",
+  "final_year": 40,
+  "final_h_over_t": 0.29219264258516814,
+  "change_last_10y": -0.011063945333040781,
+  "auton_final_h_over_t": 0.3358208364299243,
+  "semiwave_c0": 0.3390091538602741,
+  "measured": "levels off (-1.1% in last 10 yr)"
+ },
+ "sexp_half": {
+  "theory": "finite c\u2080",
+  "final_year": 40,
+  "final_h_over_t": 1.9892588024077202,
+  "change_last_10y": -0.008634835555550668,
+  "auton_final_h_over_t": 2.308183544102646,
+  "semiwave_c0": 2.3571471309418044,
+  "measured": "levels off (-0.9% in last 10 yr)"
+ },
+ "alg_a4": {
+  "theory": "finite; |h \u2212 c\u2080t| bdd",
+  "final_year": 40,
+  "final_h_over_t": 0.16540178575418785,
+  "change_last_10y": -0.012581827196202822,
+  "auton_final_h_over_t": 0.1911662002442483,
+  "semiwave_c0": 0.19174402292564297,
+  "measured": "levels off (-1.3% in last 10 yr)"
+ },
+ "alg_a3": {
+  "theory": "finite; c\u2080t \u2212 h ~ ln t",
+  "final_year": 40,
+  "final_h_over_t": 0.36177837731079876,
+  "change_last_10y": -0.009999914444037916,
+  "auton_final_h_over_t": 0.41989008732542055,
+  "semiwave_c0": 0.42374670531561154,
+  "measured": "levels off (-1.0% in last 10 yr)"
+ },
+ "alg_a2.5": {
+  "theory": "finite; c\u2080t \u2212 h ~ t^\u00bd",
+  "final_year": 40,
+  "final_h_over_t": 0.8129693490012625,
+  "change_last_10y": -0.005125427472233435,
+  "auton_final_h_over_t": 0.9469278434474548,
+  "semiwave_c0": 0.9835645810661773,
+  "measured": "levels off (-0.5% in last 10 yr)"
+ },
+ "cauchy": {
+  "theory": "h ~ t ln t",
+  "final_year": 30,
+  "final_h_over_t": 3.7693566911295853,
+  "slope_vs_lnt": 0.6062751293826074,
+  "r2": 0.9990583522277583,
+  "loglog_slope": 1.1837911284092224,
+  "measured": "h/t linear in ln t (R\u00b2 = 0.999)"
+ },
+ "alg_a1.75": {
+  "theory": "h ~ t^(4/3)",
+  "final_year": 9,
+  "final_h_over_t": 35.00347203487832,
+  "local_exponents": [
+   1.8296377556214585,
+   1.7000165485046121,
+   1.639543564586006,
+   1.6031024874065676,
+   1.57820254698351,
+   1.5598545257030187,
+   1.545616891778867,
+   1.5341654769839332,
+   1.5247103189208153,
+   1.5167196162625087,
+   1.5098532889907141,
+   1.5038717566907454
+  ],
+  "late_exponent": 1.522489558271264,
+  "predicted": 1.3333333333333333,
+  "years_coarse": 13,
+  "measured": "exponent 1.83 \u2192 1.50, falling"
+ },
+ "alg_a1.5": {
+  "theory": "h ~ t\u00b2",
+  "final_year": 1,
+  "final_h_over_t": 33.97563537348726,
+  "local_exponents": [
+   3.4138414000754773,
+   2.8591510143748415,
+   2.642845046618274,
+   2.524961988569188
+  ],
+  "late_exponent": 2.583903517593731,
+  "predicted": 2.0,
+  "years_coarse": 5,
+  "measured": "exponent 3.41 \u2192 2.52, falling"
+ }
+}
