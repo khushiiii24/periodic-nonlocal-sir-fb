@@ -15,7 +15,7 @@
 | # | Name | Roll number |
 |:-:|:-----|:-----------:|
 | 1 | Khushi | LCB2024007 |
-| 2 | Diyanshu Kumar | LCI2024015 |
+| 2 | Divyanshu Kumar | LCI2024015 |
 | 3 | Ramesh Bijarniya | LCI2024045 |
 | 4 | Satyavrat Rai | LCI2024022 |
 
@@ -82,7 +82,7 @@ $$
 | $\varphi$ | day of the year when infection peaks |
 | $\gamma$ | recovery rate |
 | $\delta$ | birth and death rate |
-| $\mu$ | how easily the edge of the infected area moves |
+| $\mu$ | how easily the edge of the infected area moves (units: 1/day) |
 | $h_0$ | half width of the first infected area |
 
 </details>
@@ -95,11 +95,13 @@ We also study a **simple model** that keeps $S$ fixed and uses one equation for 
 
 | Result | What we found |
 |:-------|:--------------|
-| 📐 **Thresholds** | They depend only on the **yearly average** infection rate (a short new proof). |
-| 🐢 **Speed** | Seasons make the front **9 to 13% slower**, even with the same average. |
-| 📅 **Arrival date** | The critical value μ* changes **about 700 times** with the arrival date (0.060 in July, 42 in February). |
+| 📐 **Thresholds** | They depend only on the **yearly average** infection rate (Proposition 1), with a full proof of spread-or-vanish for the simple model (Appendix B). |
+| 🐢 **Speed** | Seasons make the front **8 to 13% slower**, confirmed by an independent periodic semi-wave calculation (0.15% agreement). |
+| 📅 **Arrival date** | The critical value μ* (units: 1/day) changes **about 700 times** with the arrival date (0.060 in July, 42 in February). Treating very small infected numbers as extinct makes this **larger** (up to 4000 times). |
+| 🦠 **Three diseases** | The arrival-date effect is about 650 times for dengue, 1100 for cholera and 18 for influenza. |
 | 🚀 **Speeding up** | The front speeds up **only** when the average jump length is infinite (tested on 9 kernels). |
-| 🛑 **Full model** | With lifelong immunity the front **stops** after 2 to 3 seasons, while the simple model keeps going. |
+| 🛑 **Full model** | With lifelong immunity the front **stalls** for small μ, while the simple model keeps going. The stall comes from the boundary rule: if recovered people also push the boundary, it no longer stalls. |
+| 📊 **Real data** | A fit to monthly dengue counts from Delhi puts the peak of transmission around **1 August**. |
 
 ### Three example diseases
 
@@ -117,8 +119,8 @@ We also study a **simple model** that keeps $S$ fixed and uses one equation for 
 |:-:|:-:|
 | ![Thresholds](figures/fig1_thresholds.png) | ![Speed](figures/fig2_speed_validation.png) |
 | **Fig 1.** Seasonal R₀ and the critical size | **Fig 2.** Checking the solver and speed vs μ |
-| ![Ratchet](figures/fig3_ratchet.png) | ![Kernels](figures/fig5_kernels.png) |
-| **Fig 3.** Fast in autumn, almost still in spring | **Fig 5.** Which kernels make the front speed up |
+| ![Ratchet](figures/fig3_ratchet.png) | ![Kernels](figures/fig6_kernels.png) |
+| **Fig 3.** Fast in autumn, almost still in spring | **Fig 6.** Which kernels make the front speed up |
 
 <details>
 <summary><b>More figures (click to open)</b></summary>
@@ -127,13 +129,25 @@ We also study a **simple model** that keeps $S$ fixed and uses one equation for 
 
 ![Arrival date](figures/fig4_mustar.png)
 
-**Fig 6.** Full model compared with the simple model
+**Fig 5.** Extinction threshold and the three diseases
 
-![Full model](figures/fig6_full_sir.png)
+![Extinction](figures/fig5_extinction_diseases.png)
 
-**Fig 7.** Sensitivity analysis
+**Fig 7.** Full model compared with the simple model
 
-![Sensitivity](figures/fig7_prcc.png)
+![Full model](figures/fig7_full_sir.png)
+
+**Fig 8.** Where the full model stalls
+
+![Stall map](figures/fig8_stall_map.png)
+
+**Fig 9.** Sensitivity analysis
+
+![Sensitivity](figures/fig9_sensitivity.png)
+
+**Fig 10.** Fit to Delhi dengue data
+
+![Data fit](figures/fig10_dengue_fit.png)
 
 </details>
 
@@ -152,7 +166,7 @@ pip install -r requirements.txt
 # 3. Run the studies (each one saves its results in results/)
 cd scripts
 python s01_thresholds.py
-python s08_figures.py
+python r08_figures.py     # all figures of the revised paper
 ```
 
 <details>
@@ -170,7 +184,16 @@ python s08_figures.py
 | `s06_full_sir.py` | Full model vs simple model | ~5 min |
 | `s06b_full_diagnostics.py` | Why the full model front stops | ~3 min |
 | `s07_sensitivity.py` | Sensitivity analysis (200 samples) | ~15 min |
-| `s08_figures.py` | Makes all figures | seconds |
+| `s08_figures.py` | Figures of the first version | seconds |
+| `r01_semiwave.py` | Independent periodic semi-wave check of the seasonal speed; second-order (Heun) time stepping | ~10 min |
+| `r02_mustar.py` | Convergence of μ*, extinction-threshold test, μ* vs arrival date for three diseases | ~10 min |
+| `r03_fit.py` | Fit of the seasonal shape and timing of β(t) to Delhi monthly dengue counts | ~1 min |
+| `r04_full.py` | Stall map over μ and d₁, yearly-advance diagnostics, boundary rule with I + ρR, agreement near μ* | ~25 min |
+| `r05_sensitivity.py` | 400 more sensitivity samples (`python r05_sensitivity.py 0 200` and `python r05_sensitivity.py 200 400`) | ~16 min each |
+| `r05b_analysis.py` | PRCC and first-order (Sobol) indices from all samples | ~2 min |
+| `r06_spatial.py` | Critical size when the season changes with position | ~3 min |
+| `r07_fitted.py` | μ* and speed for the season fitted to Delhi data | ~3 min |
+| `r08_figures.py` | Makes all ten figures of the revised paper | ~1 min |
 
 </details>
 
@@ -182,10 +205,12 @@ python s08_figures.py
 periodic-nonlocal-sir-fb/
 ├── sirfb/
 │   ├── core.py        model, kernels, thresholds and the simulator
-│   └── semiwave.py    separate check of the front speed
-├── scripts/           one script for each study (s01 to s08)
+│   ├── semiwave.py    separate check of the front speed
+│   └── ext.py         Heun stepping, periodic semi-wave, extinction test, full model with I + ρR boundary
+├── scripts/           one script for each study (s01 to s08, r01 to r08)
 ├── results/           numbers saved by each script (JSON)
 ├── figures/           all figures used in the paper
+├── data/              monthly Delhi dengue counts used for the fit
 ├── requirements.txt
 ├── LICENSE
 └── README.md
@@ -201,7 +226,7 @@ periodic-nonlocal-sir-fb/
 4. Y. Du, W. Ni, *Rate of propagation for the Fisher-KPP equation with nonlocal diffusion and free boundaries*, J. Eur. Math. Soc. 27 (2025).
 5. T. Wang, Z. Li, B. Dai, *Semi-wave and spreading speed for a nonlocal diffusive Fisher-KPP model with free boundaries in time periodic environment*, DCDS-B 29 (2024).
 
-**Data:** dengue case counts from the [National Center for Vector Borne Diseases Control, India](https://ncvbdc.mohfw.gov.in/Doc/Dengue-Cases-deaths-2021-2026-till-April.pdf). The parameter values are examples and are not fitted to this data.
+**Data:** yearly dengue case counts from the [National Center for Vector Borne Diseases Control, India](https://ncvbdc.mohfw.gov.in/Doc/Dengue-Cases-deaths-2021-2026-till-April.pdf). Monthly Delhi counts (Municipal Corporation of Delhi, as reported by PTI) are in `data/delhi_dengue_monthly.csv` and are used to fit the timing and strength of the season. The other parameter values are examples and are not fitted.
 
 ---
 
